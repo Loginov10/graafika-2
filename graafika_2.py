@@ -1,7 +1,36 @@
-
 from math import*
 from tkinter import *
 import random
+
+
+
+def valgusfoor():
+    tahvel=Tk()
+    tahvel.title("Tahvel")
+    tahv=Canvas(tahvel,width=600,height=600,background="grey")
+
+    tahv.create_rectangle(100,570,  500,580, fill="black")
+    tahv.create_rectangle(290,560,  300,320, fill="black")
+    red_light=tahv.create_rectangle(250,240,  340,310,outline="Black", fill="grey")
+    yellow_light=tahv.create_rectangle(250,160,  340,230,outline="Black", fill="grey")
+    green_light=tahv.create_rectangle(250,80,  340,150,outline="Black", fill="grey")
+    tahv.grid()
+
+    def switch():
+        if var.get() == 1:
+            tahv.itemconfig(red_light, fill='red')
+            tahv.itemconfig(yellow_light, fill='black')
+            tahv.itemconfig(green_light, fill='black')
+        elif var.get() == 2:
+            tahv.itemconfig(red_light, fill='black')
+            tahv.itemconfig(yellow_light, fill='yellow')
+            tahv.itemconfig(green_light, fill='black')
+        else:
+            tahv.itemconfig(red_light, fill='black')
+            tahv.itemconfig(yellow_light, fill='black')
+            tahv.itemconfig(green_light, fill='green')
+    return switch
+    
 
 
 
@@ -92,7 +121,7 @@ def baham():
 
 tekst="Aken"
 aken=Tk()
-aken.geometry("200x200")  #разрешение экрана
+aken.geometry("300x200")  #разрешение экрана
 aken.title(tekst)          #заголовок
 
 nupp=Radiobutton(aken,text="Eesti lipp",command=eesti)
@@ -105,12 +134,24 @@ nupp4=Radiobutton(aken,text="Mälu", command=board)
 
 nupp5=Radiobutton(aken,text="Ringad",command=ringad)
 
+nupp6=Radiobutton(aken,text="Valgusfoor",command=valgusfoor)
+
+var = IntVar()
+radio_red = Radiobutton(aken, text="Red", bg="red",variable=var,value=1,command=valgusfoor)
+
+radio_yellow = Radiobutton(aken, text="yellow", bg="yellow",variable=var,value=2,command=valgusfoor)
+
+radio_green = Radiobutton(aken, text="green", bg="green",variable=var,value=3,command=valgusfoor)
 
 nupp.grid(row=1,column=1)
 nupp2.grid(row=2,column=1)
 nupp3.grid(row=3,column=1)
 nupp4.grid(row=4,column=1)
 nupp5.grid(row=5,column=1)
+nupp6.grid(row=6,column=1)
+radio_red.grid(row=1, column=2) 
+radio_yellow.grid(row=2, column=2)
+radio_green.grid(row=3, column=2)
 
 aken.mainloop()
 
