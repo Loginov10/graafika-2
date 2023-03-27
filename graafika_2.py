@@ -2,6 +2,9 @@
 from math import*
 from tkinter import *
 import random
+
+
+
 def board():
     tahvel=Tk()
     tahvel.title("Tahvel")
@@ -74,6 +77,7 @@ def eesti():
     tahvel.create_rectangle(190,100,  10,60, fill="black")
     tahvel.create_rectangle(190,100,  10,135, fill="white")
     tahvel.grid()
+    
 
 def baham():
     nupp2.configure()
@@ -88,68 +92,27 @@ def baham():
 
 tekst="Aken"
 aken=Tk()
-aken.geometry("1100x500")  #разрешение экрана
+aken.geometry("200x200")  #разрешение экрана
 aken.title(tekst)          #заголовок
 
-nupp=Button(aken,
-            text="Eesti lipp",
-            bg="lightblue",          
-            fg="#4f1fd1",  
-            font="Dubai 20",  
-            activebackground="orange",
-            activeforeground="red",
-            height=3,    
-            width=15,
-            command=eesti)
-nupp2=Button(aken,
-            text="Bahama saarte lipp",
-            bg="lightblue",          
-            fg="#4f1fd1",  
-            font="Dubai 20",  
-            activebackground="orange",
-            activeforeground="red",
-            height=3,    
-            width=15,
-            command=baham)
-nupp3=Button(aken,
-            text="Muster",
-            bg="lightblue",          
-            fg="#4f1fd1",  
-            font="Dubai 20",  
-            activebackground="orange",
-            activeforeground="red",
-            height=3,    
-            width=15,
-            command=muster)
-nupp4=Button(aken,
-            text="Male tahvel",
-            bg="lightblue",          
-            fg="#4f1fd1",  
-            font="Dubai 20",  
-            activebackground="orange",
-            activeforeground="red",
-            height=3,    
-            width=15,
-            command=board)
-nupp5=Button(aken,
-            text="Ringid",
-            bg="lightblue",          
-            fg="#4f1fd1",  
-            font="Dubai 20",  
-            activebackground="orange",
-            activeforeground="red",
-            height=3,    
-            width=15,
-            command=ringad)
+nupp=Radiobutton(aken,text="Eesti lipp",command=eesti)
 
-nupp5.pack(side=LEFT)
-nupp4.pack(side=LEFT)
-nupp3.pack(side=LEFT)
-nupp.pack(side=LEFT)
-nupp2.pack(side=LEFT)
+nupp2=Radiobutton(aken,text="Bahama saarte lipp",command=baham)
+
+nupp3=Radiobutton(aken,text="Muster",command=muster)
+
+nupp4=Radiobutton(aken,text="Mälu", command=board)
+
+nupp5=Radiobutton(aken,text="Ringad",command=ringad)
+
+
+nupp.grid(row=1,column=1)
+nupp2.grid(row=2,column=1)
+nupp3.grid(row=3,column=1)
+nupp4.grid(row=4,column=1)
+nupp5.grid(row=5,column=1)
 
 aken.mainloop()
-
 
 
 
